@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Page</title>
+  <!-- Include Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include Custom CSS -->
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <!-- Sidebar -->
+      <div class="col-md-3 p-3 bg-light border-end">
+        <div class="sticky-top">
+          <!-- Search Bar -->
+          <input
+            type="text"
+            id="searchBar"
+            class="form-control mb-4 shadow-sm"
+            placeholder="🔍 Search items..."
+            oninput="filterItems()"
+          />
+
+          <!-- Categories -->
+          <h5 class="mb-3">Menu Items</h5>
+          <div id="categories" class="list-group overflow-auto shadow-sm" style="max-height: 70vh;">
+            <!-- Categories will be dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9 p-4">
+        <h2 class="mb-4 text-center text-primary">All Items</h2>
+        <div id="menuItems" class="row g-4">
+          <!-- Menu items will be dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Cart -->
+  <div id="floating-cart" class="floating-cart">
+    <span id="cart-total-items">0 items</span> - <span id="cart-total-value">Total: ₹0</span>
+    <button id="view-cart-btn" onclick="showOrderSummary()">View Cart</button>
+  </div>
+
+  <!-- Order Summary Modal -->
+  <div id="order-summary-modal" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal()" class="close-button">&times;</span>
+        <h2>Your Order</h2>
+        <div id="order-items-list"></div>
+        <p id="order-total"></p>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+  </div>
+
+  <!-- Include JavaScript -->
+  <script src="menu.js"></script>
+</body>
+</html>
